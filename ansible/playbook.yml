@@ -1,0 +1,22 @@
+---
+- name: 3x-ua 
+  hosts: 3x-ua
+  become: yes
+
+  tasks:
+  - name: Install a list of packages
+  ansible.builtin.apt:
+    pkg:
+      - curl
+      - bash
+    state: present
+    update_cache: yes
+
+  - name: Install WARP proxy
+  ansible.builtin.shell:
+  args:
+    cmd: bash <(curl -Ls https://raw.githubusercontent.com/Niopt/auto_3x-au-1/refs/heads/main/install.sh)
+    stdin:
+      y
+      2053
+    executable: /bin/bash
