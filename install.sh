@@ -111,6 +111,17 @@ config_after_install() {
             echo -e "${green}WebBasePath: ${config_webBasePath}${plain}"
             echo -e "${green}Access URL: http://${server_ip}:${config_port}/${config_webBasePath}${plain}"
             echo -e "###############################################"
+            
+cat > /usr/local/x-ui/credentials.txt <<EOF
+Username: ${config_username}
+Password: ${config_password}
+Port: ${config_port}
+WebBasePath: ${config_webBasePath}
+Access URL: http://${server_ip}:${config_port}/${config_webBasePath}
+EOF
+
+chmod 600 /usr/local/x-ui/credentials.txt
+            
         else
             local config_webBasePath=$(gen_random_string 15)
             echo -e "${yellow}WebBasePath is missing or too short. Generating a new one...${plain}"
