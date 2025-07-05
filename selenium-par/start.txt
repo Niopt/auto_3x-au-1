@@ -1,0 +1,4 @@
+Команда запуска: 
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory.ini playbook.yml
+Файл с конфигами:
+/usr/local/x-ui/credentials.txt
