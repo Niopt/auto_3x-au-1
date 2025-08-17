@@ -119,8 +119,6 @@ URL_3X_UI=http://${server_ip}:${config_port}/${config_webBasePath}
 DEST=deutschland.de
 EOF
 
-chmod 600 /usr/local/x-ui/credentials.txt
-            
         else
             local config_webBasePath=$(gen_random_string 15)
             echo -e "${yellow}WebBasePath is missing or too short. Generating a new one...${plain}"
